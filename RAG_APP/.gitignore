@@ -28,3 +28,10 @@ htmlcov/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+#add chat history and uploads inside ui
+ui/chat_histories/
+ui/uploads/
+
+#add virtual environment too
+Pipfile
