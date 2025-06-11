@@ -1,6 +1,6 @@
 # RAG Chatbot
 
-**RAG Chatbot** is a modular Retrieval-Augmented Generation (RAG) application that combines document search with generative AI to answer user questions based on your own knowledge base. 
+**USA History RAG Chatbot** is a modular Retrieval-Augmented Generation (RAG) application that combines document search with generative AI to answer user questions based on your own knowledge base. 
 
 ---
 
