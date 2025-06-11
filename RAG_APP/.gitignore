@@ -35,3 +35,6 @@ ui/uploads/
 
 #add virtual environment too
 Pipfile
+
+chroma_db
+documents/history_outline_usa.pdf

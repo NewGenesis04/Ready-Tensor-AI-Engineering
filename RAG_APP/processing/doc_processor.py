@@ -24,10 +24,13 @@ def load_docs(folder_path: str) -> List[Document]:
             if filename.endswith('.pdf'):
                 loader = PyPDFLoader(file_path)
             elif filename.endswith('.docx'):
+                pass
                 loader = Docx2txtLoader(file_path)
             elif filename.endswith('.txt'):
+                pass
                 loader = TextLoader(file_path, encoding='utf-8')
             else:
+                pass
                 print(f"Unsupported file type: {filename}")
                 continue
             documents.extend(loader.load())
@@ -49,3 +52,7 @@ def split_docs(documents, chunk_size=1000, chunk_overlap=200):
     except Exception as e:
         print(f"Error splitting documents: {e}")
         return []
+
+# if __name__ == "__main__":
+#     docs = load_docs(str(folder_path))
+#     print(f"Loaded {len(docs)} documents.")
