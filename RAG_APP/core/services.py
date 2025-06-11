@@ -1,9 +1,9 @@
 import os
 import json
 from pathlib import Path
-from RAG_APP.core.generation import get_rag_response
-from RAG_APP.processing.embeddings import chroma_db, get_embeddings
-from RAG_APP.processing.doc_processor import load_docs, split_docs
+from core.generation import get_rag_response
+from processing.embeddings import chroma_db, get_embeddings
+from processing.doc_processor import load_docs, split_docs
 
 CHAT_HISTORY_DIR = Path(__file__).parent.parent / "ui" / "chat_histories"
 UPLOADS_DIR = Path(__file__).parent.parent / "ui" / "uploads"

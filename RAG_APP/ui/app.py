@@ -1,9 +1,15 @@
 import streamlit as st
 import json
 import os
+import sys
 from datetime import datetime
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Now use a regular import
+from processing.embeddings import query_db
+from core.generation import system_response
 # --- Helper Functions ---
+
 
 def save_chat_history(session_id, history):
     os.makedirs("ui/chat_histories", exist_ok=True)
@@ -17,9 +23,16 @@ def load_chat_history(session_id):
     except FileNotFoundError:
         return []
 
-def get_rag_response(query, session_id):
-    # Placeholder for backend call
-    return {"answer": f"Echo: {query}", "sources": ["Source1", "Source2"]}
+
+def get_rag_response(session_id,query):
+    """
+    Get a response from the RAG system using the provided query.
+    """
+    response = system_response(session_id, query)
+    return {
+        "answer": response["answer"],
+        "sources": response["sources"]
+    }
 
 def process_files(files, session_id):
     for file in files:
@@ -87,7 +100,7 @@ user_input = st.text_input("Type your question...", key="user_input")
 if st.button("Send") and user_input:
     st.session_state.chat_history.append({"role": "user", "content": user_input})
     with st.spinner("Retrieving answer..."):
-        response = get_rag_response(user_input, st.session_state.session_id)
+        response = get_rag_response(st.session_state.session_id,user_input)
     st.session_state.chat_history.append({"role": "bot", "content": response["answer"], "sources": response["sources"]})
     st.session_state.threads[st.session_state.session_id] = st.session_state.chat_history
     save_chat_history(st.session_state.session_id, st.session_state.chat_history)

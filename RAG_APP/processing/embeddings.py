@@ -2,7 +2,7 @@ from pathlib import Path
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
 from langchain_community.vectorstores import Chroma
-from RAG_APP.processing.doc_processor import load_docs, split_docs
+from processing.doc_processor import load_docs, split_docs
 from tenacity import retry, stop_after_attempt, wait_exponential
 import os
 load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
@@ -35,6 +35,7 @@ def query_db(query: str):
     Queries the Chroma database with the provided query string.
     Returns the results from the database.
     """
+    print(f"Querying database with: {query}")
     try:
         retriever = chroma_db.as_retriever(search_kwargs={"k": 2})
         results = retriever.invoke(input=query)
