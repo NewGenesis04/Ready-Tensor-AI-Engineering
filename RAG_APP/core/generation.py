@@ -1,28 +1,50 @@
 # RAG_APP/core/generation.py
-
-from .retrieval import get_retriever
-from langchain.chains import RetrievalQA
+from RAG_APP.processing.embeddings import chroma_db
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnablePassthrough
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_core.prompts import PromptTemplate
 from .config import GOOGLE_API_KEY
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-pro",
+    model="gemini-2.5-flash",
     google_api_key=GOOGLE_API_KEY
 )
 
-def get_rag_response(user_id: str, thread_id: str, query: str) -> dict:
-    retriever = get_retriever()
-    rag_chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        retriever=retriever,
-        return_source_documents=True
+def get_rag_response(thread_id: str | None, query: str) -> dict:
+
+
+    prompt = PromptTemplate.from_template("""
+    Use the following context to answer the question.
+
+    Context:
+    {context}
+
+    Question:
+    {query}
+    """)
+
+    retriever = chroma_db.as_retriever(search_kwargs={"k": 2})
+    parser = StrOutputParser()
+
+    def format_docs(docs):
+        return "\n\n".join(doc.page_content for doc in docs)
+
+    rag_chain = (
+        {
+            "context": retriever | format_docs,
+             "query": RunnablePassthrough()
+    }      
+        | prompt
+        | llm
+        | parser
     )
 
-    result = rag_chain.invoke({"query": query})
+    answer = rag_chain.invoke({"query": query})
 
-    sources = [doc.metadata.get("source", "Unknown") for doc in result.get("source_documents", [])]
-    
+    sources = [doc.metadata.get("source", "Unknown") for doc in answer.get("source_documents", [])]
     return {
-        "answer": result["result"],
-        "sources": sources
+        "answer": answer,
+        "sources": sources,
+        "thread_id": thread_id
     }

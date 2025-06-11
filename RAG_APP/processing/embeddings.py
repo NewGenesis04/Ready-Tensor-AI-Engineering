@@ -29,7 +29,6 @@ chroma_db = Chroma.from_documents(
     persist_directory=CHROMA_PATH, 
     collection_name="rag_app"
     )
-chroma_db.persist()
 
 def query_db(query: str):
     """
@@ -38,7 +37,7 @@ def query_db(query: str):
     """
     try:
         retriever = chroma_db.as_retriever(search_kwargs={"k": 2})
-        results = retriever.invoke(query)
+        results = retriever.invoke(input=query)
         return results
     except Exception as e:
         print(f"Error querying database: {e}")
