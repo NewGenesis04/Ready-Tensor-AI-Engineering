@@ -10,6 +10,7 @@ A modular Python repository for AI projects, focused on Retrieval-Augmented Gene
 - **Modular Design:** Core functionalities are separated into distinct modules for easy maintenance and scalability.
 
 ## Project Hierarchy
+
 RAG_APP/
 ├── core/
 │   ├── config.py
