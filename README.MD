@@ -1,4 +1,60 @@
-# Ready-Tensor AI Engineering 🚀
-*A modular repository for AI projects, built for collaboration and scalability.*
+# U.S. History based RAG Chatbot 🚀
+A modular Python repository for AI projects, focused on Retrieval-Augmented Generation (RAG) using Google GenAI (Gemini). Built for collaboration and scalability.
 
-# Credits
+## Features
+
+- **Document Ingestion:** Upload and process PDF, DOCX, and TXT files.
+- **Vector Search:** Uses ChromaDB for fast semantic retrieval of relevant document chunks.
+- **LLM Integration:** Answers are generated using Google Generative AI models, grounded in your documents.
+- **User Interface:** Includes a Streamlit web UI for interactive chat and document management.
+- **Modular Design:** Core functionalities are separated into distinct modules for easy maintenance and scalability.
+
+## Project Hierarchy
+RAG_APP/
+├── core/
+│   ├── config.py
+│   ├── generation.py
+│   ├── prompt.py
+│   ├── retrieval.py
+│   └── services.py
+├── processing/
+│   ├── doc_processor.py
+│   ├── embeddings.py
+├── ui/
+│   ├── app.py
+│   ├── chat_histories/
+│   └── uploads/
+├── documents/
+├── requirements.txt
+└── README.MD
+
+
+## Setup
+
+1. Clone the repository  
+   `git clone <the-repo-url>`  
+   `cd repo_name`
+
+2. Create and activate a virtual environment  
+   `python -m venv .venv`  
+   `.venv\Scripts\activate`
+
+3. Install dependencies  
+   `pip install -r requirements.txt`
+
+4. Set up environment variables  
+   Create a `.env` file in the root directory:  
+   `GOOGLE_API_KEY=your_google_api_key`
+
+## Running the App
+
+Start the main UI or API (adjust as needed for your entry point):  
+`streamlit run RAG_APP/ui/app.py`
+
+## How it looks
+![Screenshot of the app](![img.png](img.png)https://raw.githubusercontent.com/yourusername/repo_name/main/ui/screenshot.png)
+
+**Credits:**  
+Developed by Ogie Omorose, Anish Khatiwada, and Alpha Lencho.
+
+**Note:** This app is for educational and research purposes. For production use, review security and privacy best practices.

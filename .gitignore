@@ -7,7 +7,7 @@ fastapi-env/
 *.py[cod]
 
 # Environment files
-.env
+RAG_APP/.env
 *.env
 
 # Editor and IDE settings
@@ -28,3 +28,6 @@ htmlcov/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+Pipfile
+ui
