@@ -8,8 +8,10 @@ A modular Python repository for AI projects, focused on Retrieval-Augmented Gene
 - **LLM Integration:** Answers are generated using Google Generative AI models, grounded in your documents.
 - **User Interface:** Includes a Streamlit web UI for interactive chat and document management.
 - **Modular Design:** Core functionalities are separated into distinct modules for easy maintenance and scalability.
+---
 
 ## Project Hierarchy
+```
 RAG_APP/
 ├── core/
 │   ├── config.py
@@ -27,7 +29,8 @@ RAG_APP/
 ├── documents/
 ├── requirements.txt
 └── README.MD
-
+```
+---
 
 ## Setup
 
@@ -45,14 +48,14 @@ RAG_APP/
 4. Set up environment variables  
    Create a `.env` file in the root directory:  
    `GOOGLE_API_KEY=your_google_api_key`
-
+---
 ## Running the App
 
 Start the main UI or API (adjust as needed for your entry point):  
 `streamlit run RAG_APP/ui/app.py`
-
+---
 ## How it looks
-![Screenshot of the app](![img.png](img.png)https://raw.githubusercontent.com/yourusername/repo_name/main/ui/screenshot.png)
+![Screenshot of the app](https://raw.githubusercontent.com/yourusername/repo_name/main/ui/screenshot.png)
 
 **Credits:**  
 Developed by Ogie Omorose, Anish Khatiwada, and Alpha Lencho.
