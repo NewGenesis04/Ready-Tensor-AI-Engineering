@@ -53,6 +53,7 @@ RAG_APP/
 To run the Streamlit app, execute the following command in your terminal:
 ```bash
 `streamlit run RAG_APP/ui/app.py`
+```
 ---
 ## How it looks
 ![img_1.png](img_1.png)
