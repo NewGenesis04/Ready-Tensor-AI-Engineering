@@ -85,23 +85,23 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# File Upload
-with st.expander("📄 Upload Documents", expanded=False):
-    uploaded_files = st.file_uploader("Upload PDF, DOCX, or TXT files", type=["pdf", "docx", "txt"], accept_multiple_files=True)
-    if uploaded_files:
-        st.info("Uploading and processing files...")
-        process_files(uploaded_files, st.session_state.session_id)
-        st.success("Files uploaded and processed!")
-        st.session_state.updating_kb = False
+# # File Upload
+# with st.expander("📄 Upload Documents", expanded=False):
+#     uploaded_files = st.file_uploader("Upload PDF, DOCX, or TXT files", type=["pdf", "docx", "txt"], accept_multiple_files=True)
+#     if uploaded_files:
+#         st.info("Uploading and processing files...")
+#         process_files(uploaded_files, st.session_state.session_id)
+#         st.success("Files uploaded and processed!")
+#         st.session_state.updating_kb = False
 
 # Chat Interface
-st.subheader("💬 Chat")
+st.subheader("💬 Chat About U.S. History")
 user_input = st.text_input("Type your question...", key="user_input")
 if st.button("Send") and user_input:
     st.session_state.chat_history.append({"role": "user", "content": user_input})
     with st.spinner("Retrieving answer..."):
         response = get_rag_response(st.session_state.session_id,user_input)
-    st.session_state.chat_history.append({"role": "bot", "content": response["answer"], "sources": response["sources"]})
+    st.session_state.chat_history.append({"role": "bot", "content": response["answer"]})
     st.session_state.threads[st.session_state.session_id] = st.session_state.chat_history
     save_chat_history(st.session_state.session_id, st.session_state.chat_history)
     st.rerun()
