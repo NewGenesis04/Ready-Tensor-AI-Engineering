@@ -50,12 +50,10 @@ RAG_APP/
    `GOOGLE_API_KEY=your_google_api_key`
 ---
 ## Running the App
-
-Start the main UI or API (adjust as needed for your entry point):  
 `streamlit run RAG_APP/ui/app.py`
 ---
 ## How it looks
-![Screenshot of the app](https://raw.githubusercontent.com/yourusername/repo_name/main/ui/screenshot.png)
+![img_1.png](img_1.png)
 
 **Credits:**  
 Developed by Ogie Omorose, Anish Khatiwada, and Alpha Lencho.
