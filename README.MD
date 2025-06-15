@@ -50,11 +50,13 @@ RAG_APP/
    `GOOGLE_API_KEY=your_google_api_key`
 ---
 ## Running the App
+To run the Streamlit app, execute the following command in your terminal:
+```bash
 `streamlit run RAG_APP/ui/app.py`
 ---
 ## How it looks
 ![img_1.png](img_1.png)
-
+---
 **Credits:**  
 Developed by Ogie Omorose, Anish Khatiwada, and Alpha Lencho.
 
