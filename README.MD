@@ -49,6 +49,7 @@ RAG_APP/
     - langchain-google-genai
     - chromadb
     - tenacity
+    <br>
 ```Note: All the rquire packages are given in the requirements.txt file, you can install them using pip.```
 - **API Keys:**  
   - You must provide a valid Google Generative AI API key in a `.env` file.
