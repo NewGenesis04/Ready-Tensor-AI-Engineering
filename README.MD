@@ -32,6 +32,38 @@ RAG_APP/
 ```
 ---
 
+## Requirements
+
+- **Python Version:**  
+  Python 3.10 or higher is recommended.
+
+- **Operating System:**  
+  - Windows, macOS, or Linux (tested on Windows 10/11 and Ubuntu 22.04)
+  - Streamlit and all dependencies are cross-platform.
+
+- **Dependencies:**  
+  - All required Python packages are listed in `requirements.txt`.  
+  - Key dependencies include:
+    - streamlit
+    - langchain
+    - langchain-google-genai
+    - chromadb
+    - tenacity
+```Note: All the rquire packages are given in the requirements.txt file, you can install them using pip.```
+- **API Keys:**  
+  - You must provide a valid Google Generative AI API key in a `.env` file.
+
+- **Hardware:**  
+  - No GPU required. Standard CPU and at least 4GB RAM recommended for smooth operation.
+
+---
+
+**Note:**  
+For best results, use a modern version of Python and keep your dependencies up to date.  
+If you encounter issues on your OS, please open an issue or pull request.
+
+---
+
 ## Setup
 
 1. Clone the repository  
